@@ -16,19 +16,43 @@ def upper_lower(word):
 
 
 def no_first_last(str):
-    no_first_or_last = print(str[1:-1])
+    no_first_or_last = str[1:-1]
     return no_first_or_last
 
 def longest(phrase):
-    pass
+
+    words = phrase.split(" ")
+    longest = ""
+    for word in words:
+
+        if len(word) >= len(longest):
+            longest = word
+    return(longest)
+
+
+
+
+
 
 
 def title_case(sentence):
-    pass
+    words = sentence.split(" ")
+    capitals = ""
+    list_two = []
+    for word in words:
+        s = word[0]
+        s = s.upper()
+        x = s + word[1:]
+        list_two.append(x)
+    capitals = " ".join(list_two)
+    return capitals
+
+
 
 def main():
     half_slice("cookie")
     upper_lower("caleb")
     no_first_last("hello")
+    title_case("The quick brown fox jumped lazy the lazy dog")
 
 main()
