@@ -33,20 +33,38 @@ def random_password():
     symbols = input("Would you like symbols? (y/n) ")
     empty_list = []
     for letters in range(characters):
-        num = random.randrange(0, 1)
-        num2 = random.randrange(0, 3)
-        if case == "y" and num == 1:
-            if numbers == "y" and num2 == 3:
-                character = random.randint(0, 9)
-            elif num2 == 0:
-                character = random.choice(list_of_letters)
-                character = character.capitalize()
-            elif num2 == 1:
-                character = random.choice(list_of_letters)
+        num = random.randint(0, 1)
+        num2 = random.randint(0, 1)
+        if case == "y":
+            if numbers == "y":
+                if num2 == 1:
+                   character = random.randint(0, 9)
+                elif num2 == 0:
+                    character = random.choice(list_of_letters)
+                    if num == 0:
+                        character = character[:1].upper()
+                    elif num == 1:
+                        character = character[:1].upper()
+                        character = character[:1].lower()
+
+        elif case == "n":
+            if numbers == "y":
+                if num2 == 1:
+                   character = random.randint(0, 9)
+                else:
+                    character = random.choice(list_of_letters)
+                    character = character[:1].upper()
+                    character = character[:1].lower()
+
         else:
             character = random.choice(list_of_letters)
+            character = character[:1].upper()
+            character = character[:1].lower()
+        character = str(character)
         empty_list.append(character)
+        empty_list = "".join(empty_list)
     print(empty_list)
+
 
 
 
