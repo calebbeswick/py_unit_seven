@@ -31,7 +31,7 @@ def random_password():
     case = input("Would you like capital letters? (y/n) ")
     numbers = input("Would you like numbers? (y/n) ")
     symbols = input("Would you like symbols? (y/n) ")
-    empty_list = []
+    empty_list = ""
     for letters in range(characters):
         num = random.randint(0, 1)
         num2 = random.randint(0, 1)
@@ -60,9 +60,11 @@ def random_password():
             character = random.choice(list_of_letters)
             character = character[:1].upper()
             character = character[:1].lower()
-        character = str(character)
-        empty_list.append(character)
-        empty_list = "".join(empty_list)
+        character_as_string = str(character)
+        empty_list = empty_list + character_as_string
+        if symbols == "y":
+            empty_list.replace("a", "@")
+            empty_list.replace("A", "@")
     print(empty_list)
 
 
